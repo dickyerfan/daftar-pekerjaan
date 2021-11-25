@@ -1,0 +1,12 @@
+.logo{
+    display: none;
+}
+
+@media print {
+    .header, .navbar1 {
+        display: none;
+    }
+    .logo {
+        display: block;
+    }
+}
