@@ -157,9 +157,9 @@ if (isset($_POST["login"])) {
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary" name="login">Login</button>
-                        <a href="#" class="btn btn-success">
+                        <!-- <a href="#" class="btn btn-success">
                             Lupa Password
-                        </a>
+                        </a> -->
                     </form>
                     <div align="center">
                         <p>belum punya akun ? </p>
