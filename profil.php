@@ -64,14 +64,14 @@ require "function.php";
                                 <h5 class="card-title">Jenis Kelamin</h5>
                                 <h5 class="card-title">Agama</h5>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <h5 class="card-title"><?php echo $_SESSION['nik']; ?></h5>
                                 <h5 class="card-title"><?php echo ucwords(strtolower($_SESSION['tempat_lahir'])); ?></h5>
                                 <h5 class="card-title"><?php echo ucwords(date('d-F-Y', strtotime($_SESSION['tgl_lahir']))); ?></h5>
                                 <h5 class="card-title"><?php echo ucwords(strtolower($_SESSION['jenkel'])); ?></h5>
                                 <h5 class="card-title"><?php echo ucwords(strtolower($_SESSION['agama'])); ?></h5>
                             </div>
-                            <div class="col-sm-3 text-center">
+                            <div class="col-sm-4 text-center">
                                 <img src="img/pdam_biru.png" alt="" style="width: 7rem;">
                             </div>
                         </div>
