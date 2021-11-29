@@ -234,7 +234,9 @@ if (isset($_GET['hapus'])) {
                         </div>
                         <ul class="list-group">
                             <?php
-                            $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task2 ='Selesai'");
+                            $blnini = date('m');
+                            $thnini = date('Y');
+                            $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task2 ='Selesai' AND bulan = '$blnini' AND tahun = '$thnini'");
                             while ($row = mysqli_fetch_array($query)) {
                                 $id_task = $row['id_task'];
                                 $date_task2 = strtotime($row['date_task2']);
