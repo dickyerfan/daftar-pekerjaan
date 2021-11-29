@@ -236,7 +236,7 @@ if (isset($_GET['hapus'])) {
                             <?php
                             $blnini = date('m');
                             $thnini = date('Y');
-                            $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task2 ='Selesai' AND bulan = '$blnini' AND tahun = '$thnini'");
+                            $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task2 ='Selesai' AND bulan = '$blnini' AND tahun = '$thnini' ORDER BY date_task2 ASC");
                             while ($row = mysqli_fetch_array($query)) {
                                 $id_task = $row['id_task'];
                                 $date_task2 = strtotime($row['date_task2']);
