@@ -117,7 +117,7 @@ $nama = $_SESSION['username'];
                 if (isset($_POST["add_post"])) {
                     $tahun = $_POST['tahun'];
                     $bulan = $_POST['bulan'];
-                    $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task2 = 'Selesai' AND bulan = '$bulan' AND tahun = '$tahun'");
+                    $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task2 = 'Selesai' AND bulan = '$bulan' AND tahun = '$tahun' ORDER BY date_task2 ASC");
 
                 ?>
                     <?php while ($row = mysqli_fetch_assoc($query)) : ?>
