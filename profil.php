@@ -40,7 +40,7 @@ require "function.php";
                                 <h2 class="text-light">PROFIL KARYAWAN</h2>
                             </div>
                             <div class="col-sm-1 text-end">
-                                <a href="#" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ganti Password" style="width: 75px;"><img src="img/key.svg" alt="" style="width: 2rem;"></a>
+                                <a href="gantipass.php" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ganti Password" style="width: 75px;"><img src="img/key.svg" alt="" style="width: 2rem;"></a>
                             </div>
                             <div class="col-sm-2 text-end">
                                 <a href="index.php" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Kembali ke Halaman Utama" style="width: 75px;"><img src="img/x-circle.svg" alt="" style="width: 2rem;"></a>
