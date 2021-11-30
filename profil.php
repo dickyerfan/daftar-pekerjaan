@@ -65,11 +65,11 @@ require "function.php";
                                 <h5 class="card-title">Agama</h5>
                             </div>
                             <div class="col-sm-5">
-                                <h5 class="card-title"><?php echo $_SESSION['nik']; ?></h5>
-                                <h5 class="card-title"><?php echo ucwords(strtolower($_SESSION['tempat_lahir'])); ?></h5>
+                                <h5 class="gantisize card-title"><?php echo $_SESSION['nik']; ?></h5>
+                                <h5 class="gantisize card-title"><?php echo ucwords(strtolower($_SESSION['tempat_lahir'])); ?></h5>
                                 <h5 class="card-title"><?php echo ucwords(date('d-F-Y', strtotime($_SESSION['tgl_lahir']))); ?></h5>
-                                <h5 class="card-title"><?php echo ucwords(strtolower($_SESSION['jenkel'])); ?></h5>
-                                <h5 class="card-title"><?php echo ucwords(strtolower($_SESSION['agama'])); ?></h5>
+                                <h5 class="gantisize card-title"><?php echo ucwords(strtolower($_SESSION['jenkel'])); ?></h5>
+                                <h5 class="gantisize card-title"><?php echo ucwords(strtolower($_SESSION['agama'])); ?></h5>
                             </div>
                             <div class="col-sm-4 text-center">
                                 <img src="img/pdam_biru.png" alt="" style="width: 7rem;">
@@ -94,6 +94,15 @@ require "function.php";
             });
             profil[i].addEventListener('mouseleave', function() {
                 profil[i].style.color = "black";
+            });
+        }
+        const profil2 = document.querySelectorAll('.gantisize');
+        for (let i = 0; i < profil.length; i++) {
+            profil2[i].addEventListener('mouseover', function() {
+                profil2[i].style.fontSize = "2rem";
+            });
+            profil2[i].addEventListener('mouseleave', function() {
+                profil2[i].style.fontSize = "1.25rem";
             });
         }
     </script>
