@@ -61,7 +61,7 @@ if (isset($_POST["login"])) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
-    <title>Login</title>
+    <title>Lupa Password</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
