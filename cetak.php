@@ -98,7 +98,8 @@ $nama = $_SESSION['username'];
             <div class="col-sm-6"></div>
         </div>
     </div>
-    <h3 class="logo text-center">DAFTAR PEKERJAAN</h3>
+    <h3 class="logo text-center">DAFTAR PEKERJAAN . <br></h3>
+
     <div class="container-fluid" id="tabel">
         <table class="table table-hover table-bordered border-dark">
             <thead>

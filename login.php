@@ -91,7 +91,7 @@ if (isset($_POST["login"])) {
                             <input type="hidden" class="form-control" id="nama_depan" name="nama_depan" required value="">
                         </div>
                         <div class="mb-1  row">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Nama panggilan" required>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Nama panggilan" required autofocus autocomplete="off">
                         </div>
                         <div class="mb-1  row">
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
@@ -157,9 +157,12 @@ if (isset($_POST["login"])) {
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary" name="login">Login</button>
-                        <!-- <a href="#" class="btn btn-success">
+                        <!-- <a href="#" class="btn btn-success float-end">
                             Lupa Password
                         </a> -->
+                        <a href="lupapass.php" class="float-end" style="text-decoration: none;">
+                            Lupa Password?
+                        </a>
                     </form>
                     <div align="center">
                         <p>belum punya akun ? </p>
