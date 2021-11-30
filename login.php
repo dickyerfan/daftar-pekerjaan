@@ -160,9 +160,9 @@ if (isset($_POST["login"])) {
                         <!-- <a href="#" class="btn btn-success float-end">
                             Lupa Password
                         </a> -->
-                        <a href="lupapass.php" class="float-end" style="text-decoration: none;">
+                        <!-- <a href="lupapass.php" class="float-end" style="text-decoration: none;">
                             Lupa Password?
-                        </a>
+                        </a> -->
                     </form>
                     <div align="center">
                         <p>belum punya akun ? </p>
