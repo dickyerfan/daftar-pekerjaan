@@ -3,42 +3,36 @@
 session_start();
 // $con = mysqli_connect("localhost", "root", "", "daftar_pekerjaan");
 require 'function.php';
-if (isset($_POST['submit'])) :
-    extract($_POST);
+$username = $_SESSION['username'];
 
-
-    $user_check = $_SESSION['username'];
-
-    $old_pwd = $_POST['currentPassword'];
-    $pwd = $_POST['newPassword'];
-    $c_pwd = $_POST['confirmPassword'];
-    if ($old_pwd != "" && $pwd != "" && $c_pwd != "") :
-
-
-        if ($pwd == $c_pwd) :
-            if ($pwd != $old_pwd) :
-                $sql = "SELECT * FROM `user` WHERE `username`='$user_check' AND `password` =PASSWORD($old_pwd)";
-                $db_check = $db->query($sql);
-                $count = mysqli_num_rows($db_check);
-                if ($count == 1) :
-                    $fetch = $db->query("UPDATE `user` SET `password` = PASSWORD($pwd) WHERE `username`='$user_check'");
-                    $old_pwd = '';
-                    $pwd = '';
-                    $c_pwd = '';
-                    $message = "Password successfully updated!";
-                else :
-                    $message = "Old password is incorrect. Please try again.";
-                endif;
-            else :
-                $message = "Old password and new password are the same. Please try again.";
-            endif;
-        else :
-            $message = "New password and confirm password do not match.";
-        endif;
-    else :
-        $message = "Please fill all the fields";
-    endif;
-endif;
+if (isset($_POST['reset'])) {
+    // $username = $_POST['username'];
+    $passwordbaru = $_POST['passwordbaru'];
+    $passwordbaru = password_hash($passwordbaru, PASSWORD_DEFAULT);
+    $passwordconfirm = $_POST['passwordconfirm'];
+    //cek password lama
+    $query = mysqli_query($con, "SELECT * FROM user where username = '$username' ");
+    if (mysqli_num_rows($query) === 1) {
+        $row = mysqli_fetch_assoc($query);
+        //validasi data data kosong
+        if (empty($_POST['passwordbaru']) || empty($_POST['passwordconfirm'])) {
+            echo "<h3><font color=red><center>Ganti Password Gagal! Data Tidak Boleh Kosong.</center></font></h3>";
+            //validasi input konfirm password
+        } else if (($_POST['passwordbaru']) != ($_POST['passwordconfirm'])) {
+            echo "<h3><font color=red><center>Ganti Password Gagal! Password Baru dan Password Konfirmasi Harus Sama.</center></font></h3>";
+        } else {
+            //update data
+            $query = mysqli_query($con, "UPDATE user SET password='$passwordbaru' WHERE username='$username'");
+            //setelah berhasil update 
+            if ($query) {
+                echo "<h3><font color=#8BB2D9><center>Ganti Password Berhasil!</center></font></h3>";
+                // header("Location: profil.php");
+            } else {
+                echo "<h3><font color=red><center>Ganti Password Gagal!</center></font></h3>";
+            }
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,24 +48,61 @@ endif;
 </head>
 
 <body>
-    <h3 align="center">GANTI PASSWORD</h3>
-    <div><?php if (isset($message)) {
-                echo $message;
-            } ?></div>
-    <form method="post" action="" align="center">
-        Current Password:<br>
-        <input type="password" name="currentPassword"><span id="currentPassword" class="required"></span>
-        <br>
-        New Password:<br>
-        <input type="password" name="newPassword"><span id="newPassword" class="required"></span>
-        <br>
-        Confirm Password:<br>
-        <input type="password" name="confirmPassword"><span id="confirmPassword" class="required"></span>
-        <br><br>
-        <input type="submit" value="Ganti Password">
-    </form>
-    <br>
-    <br>
+
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm bg-light text-dark rounded shadow-lg border">
+                    <!-- alert untuk error -->
+                    <?php if (isset($error)) : ?>
+                        <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
+                            <strong>Login Gagal</strong><br> Harus di isi sesuai dengan di registrasi
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+                    <form action="" method="POST">
+                        <div class="row text-center">
+                            <div class="col-sm-2">
+                                <img src="img/pdam_biru.png" alt="" style="width: 3rem;">
+                            </div>
+                            <div class="col-sm-10">
+                                <h2>GANTI PASSWORD</h2>
+                            </div>
+                        </div>
+                        <div class="mb-1  row">
+                            <input type="hidden" class="form-control" id="nama_depan" name="nama_depan" required value="">
+                        </div>
+                        <br>
+                        <!-- <div class="mb-1  row">
+                            <label for="username" class="mb-2 text-muted">username :</label>
+                            <input type="text" class="form-control mb-2" id="username" name="username" required autofocus autocomplete="off">
+                        </div> -->
+                        <div class="mb-1  row">
+                            <label for="passwordbaru" class="mb-2 text-muted">Password Baru :</label>
+                            <input type="password" class="form-control mb-2" id="passwordbaru" name="passwordbaru" autocomplete="off">
+                        </div>
+                        <div class="mb-1  row">
+                            <label for="passwordconfirm" class="mb-2 text-muted">Password Konfirmasi :</label>
+                            <input type="password" class="form-control mb-2" id="passwordconfirm" name="passwordconfirm" autocomplete="off">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" name="reset">Ganti Password</button>
+                    </form>
+                    <div class="text-center mt-2 text-danger">
+                        Batal? <a href="profil.php" class="text-primary" style="text-decoration: none;">Kembali</a>
+                    </div>
+                    <!-- <div align="center">
+                        <p>Ingat Password ? </p>
+                        <a href="login.php"><button class="btn btn-danger">Login</button></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="js/bootstrap.bundle.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
