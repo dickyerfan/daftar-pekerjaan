@@ -131,7 +131,7 @@ if (isset($_GET['hapus'])) {
                             </div>
                             <div class="col-sm-2 text-end g-0">
                                 <!-- Button trigger modal -->
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-light data-bs-toggle=" tooltip data-bs-placement="bottom" title="Klik Untuk melihat Daftar Pekerjaan Anda" style="width: 4rem;"><img src=" img/list.png" alt="" style="width: 20px;"></button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement=" bottom" title="Klik Untuk melihat Daftar Pekerjaan Anda" style="width: 4rem;"><img src=" img/list.png" alt="" style="width: 20px;"></button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -165,7 +165,7 @@ if (isset($_GET['hapus'])) {
                             <div class="col-sm-2 text-end">
                                 <form action="" method="post">
                                     <input type="hidden" name="bulan" value="<?php echo date('m'); ?>" />
-                                    <button class="btn btn-outline-light data-bs-toggle=" tooltip" data-bs-placement="bottom" title="Klik Untuk Download Daftar Pekerjaan" id="ambil_data" type="submit" name="ambil_data" style="width: 4rem;">
+                                    <button class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Klik Untuk Download Daftar Pekerjaan" id="ambil_data" type="submit" name="ambil_data" style="width: 4rem;">
                                         <img src="img/cloud-download.svg" alt="" style="width: 1.4rem;">
                                     </button>
                                 </form>
