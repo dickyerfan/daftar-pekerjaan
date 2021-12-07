@@ -25,7 +25,7 @@ if (isset($_POST['reset'])) {
             $query = mysqli_query($con, "UPDATE user SET password='$passwordbaru' WHERE username='$username'");
             //setelah berhasil update 
             if ($query) {
-                echo "<h3><font color=#8BB2D9><center>Ganti Password Berhasil!</center></font></h3>";
+                echo "<h3><font color=blue><center>Ganti Password Berhasil!</center></font></h3>";
                 // header("Location: profil.php");
             } else {
                 echo "<h3><font color=red><center>Ganti Password Gagal!</center></font></h3>";
@@ -79,7 +79,7 @@ if (isset($_POST['reset'])) {
                         </div> -->
                         <div class="mb-1  row">
                             <label for="passwordbaru" class="mb-2 text-muted">Password Baru :</label>
-                            <input type="password" class="form-control mb-2" id="passwordbaru" name="passwordbaru" autocomplete="off">
+                            <input type="password" class="form-control mb-2" id="passwordbaru" name="passwordbaru" autofocus autocomplete="off">
                         </div>
                         <div class="mb-1  row">
                             <label for="passwordconfirm" class="mb-2 text-muted">Password Konfirmasi :</label>
