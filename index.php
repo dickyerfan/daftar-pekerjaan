@@ -87,6 +87,7 @@ if (isset($_GET['hapus'])) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/edit.css">
     <title>Halaman Utama</title>
 </head>
 
@@ -123,7 +124,7 @@ if (isset($_GET['hapus'])) {
         <div class="row g-1">
             <div class="col-md-6">
                 <!-- Daftar Tunggu Pekerjaan -->
-                <div class="card bg-danger shadow-lg border-0 text-center">
+                <div class="edit card bg-danger shadow-lg border-0 text-center">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-8 g-0">
@@ -190,7 +191,7 @@ if (isset($_GET['hapus'])) {
                                     <?php echo $name_task; ?>
                                     <div style="float: right;">
                                         <a href="index.php?edit=<?php echo $id_task ?>">
-                                            <span class="proses badge bg-danger">Proses</span>
+                                            <span class="proses badge bg-primary">Proses</span>
                                         </a>
                                         <a href="index.php?delete=<?php echo $id_task; ?>" onclick="return confirm('Yakin Mau dihapus..?')">
                                             <span class="badge bg-danger">Hapus</span>
@@ -244,8 +245,8 @@ if (isset($_GET['hapus'])) {
                                 <li class="list-group-item">
                                     <?php echo $row['name_task'] ?>
                                     <div style="float: right;">
-                                        <span class="badge bg-primary">Selesai</span>
-                                        <span class="badge bg-primary"><?php echo date("d M Y", $date_task2); ?></span>
+                                        <span class="badge bg-success">Selesai</span>
+                                        <span class="badge bg-success"><?php echo date("d M Y", $date_task2); ?></span>
                                         <!-- <a href="index.php?delete=<?php echo $id_task ?>" class="btn btn-danger badge bg-danger">Hapus</a> -->
                                     </div>
                                 </li>
