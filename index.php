@@ -96,31 +96,31 @@ if (isset($_GET['hapus'])) {
     <header>
         <?php include "header.php" ?>
     </header>
-    <div class="container-fluid bg-info">
-        <div class="row">
-            <div class="col-sm-4 mt-1">
-                <a class="navbar-brand text-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Klik Untuk Melihat Profil" href="profil.php"><b><?php echo $_SESSION['nama_depan'] . ' ' . $_SESSION['nama_belakang']; ?></b></a>
-            </div>
-            <div class="col-sm-2 mt-1">
-                <p><b>BAGIAN : <?php echo $_SESSION['bagian']; ?></b></p>
-            </div>
-            <div class="col-sm-3 mt-1">
-                <p><b>JABATAN : <?php echo $_SESSION['jabatan']; ?> <?php echo $_SESSION['sub_bagian']; ?></b></p>
-            </div>
-            <div class="col-sm-2 mt-1 text-end">
-                <a href="form_tanya.php">
-                    <button class="btn btn-outline-light" type="submit">Tambah Pekerjaan</button>
-                </a>
-            </div>
-            <div class="col-sm-1 mt-1 text-end">
-                <a href="#">
-                    <button class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Anda Akan Keluar" type="submit" id="tombol" style="width: 75px;"><img src="img/box-arrow-right.svg" alt="" style="width: 1.2rem;"></button>
-                </a>
-            </div>
-        </div>
-    </div>
 
-    <div class="container-fluid">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-info">
+        <div class="col-sm-4 ">
+            <a class="navbar-brand text-dark d-flex align-items-center mx-3 " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Klik Untuk Melihat Profil" href="profil.php"><b><?php echo $_SESSION['nama_depan'] . ' ' . $_SESSION['nama_belakang']; ?></b></a>
+        </div>
+        <div class="col-sm-2 ">
+            <a class="navbar-brand text-dark d-flex align-items-center"><b>BAGIAN : <?php echo $_SESSION['bagian']; ?></b></a>
+        </div>
+        <div class="col-sm-3 ">
+            <a class="navbar-brand text-dark d-flex align-items-center"><b>JABATAN : <?php echo $_SESSION['jabatan']; ?> <?php echo $_SESSION['sub_bagian']; ?></b></a>
+        </div>
+        <div class="col-sm-2  text-end">
+            <a href="form_tanya.php">
+                <button class="btn btn-outline-light" type="submit">Tambah Pekerjaan</button>
+            </a>
+        </div>
+        <div class="col-sm-1  text-end">
+            <a href="#">
+                <button class="btn btn-outline-light mx-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Anda Akan Keluar" type="submit" id="tombol" style="width: 75px;"><img src="img/box-arrow-right.svg" alt="" style="width: 1.4rem;"></button>
+            </a>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid g-0 mt-1">
         <div class="row g-1">
             <div class="col-md-6">
                 <!-- Daftar Tunggu Pekerjaan -->
@@ -132,7 +132,7 @@ if (isset($_GET['hapus'])) {
                             </div>
                             <div class="col-sm-2 text-end g-0">
                                 <!-- Button trigger modal -->
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement=" bottom" title="Klik Untuk melihat Daftar Pekerjaan Anda" style="width: 4rem;"><img src=" img/list.png" alt="" style="width: 20px;"></button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement=" bottom" title="Klik Untuk melihat Daftar Pekerjaan Anda" style="width: 4rem;"><img src=" img/list.png" alt="" style="width: 1.4rem;"></button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -161,7 +161,6 @@ if (isset($_GET['hapus'])) {
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="col-sm-2 text-end">
                                 <form action="" method="post">
