@@ -99,7 +99,8 @@ $nama = $_SESSION['username'];
             <div class="col-sm-6"></div>
         </div>
     </div>
-    <h3 class="logo text-center">DAFTAR PEKERJAAN<br></h3>
+    <h4 class="logo text-center">DAFTAR PEKERJAAN <?php echo $_SESSION['sub_bagian'] ?><br>
+    </h4>
 
     <div class="container-fluid" id="tabel">
         <table class="table table-hover table-bordered border-dark">
@@ -143,7 +144,8 @@ $nama = $_SESSION['username'];
             <div class="col-sm-6"></div>
             <div class="col-sm-6 text-center">
                 <h6>Bondowoso, <?php echo date('d F Y'); ?></h6>
-                <h6 class="ttd ">Dibuat Oleh :</h6>
+                <h6 class="ttd mb-0">Dibuat Oleh :</h6>
+                <h6><?php echo $_SESSION['jabatan'] . ' ' . $_SESSION['sub_bagian'] ?></h6>
                 <br><br>
                 <h6 class="mb-0"><u><?php echo $_SESSION['nama_depan'] . ' ' . $_SESSION['nama_belakang']; ?></u></h6>
                 <h6>Nik. <?php echo $_SESSION['nik']; ?></h6>
