@@ -139,7 +139,7 @@ $nama = $_SESSION['username'];
             </tbody>
         </table>
     </div>
-    <div class="container">
+    <div class="container logo">
         <div class="row">
             <div class="col-sm-6"></div>
             <div class="col-sm-6 text-center">
