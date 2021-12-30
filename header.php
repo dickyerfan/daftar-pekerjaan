@@ -16,6 +16,9 @@ date_default_timezone_set("Asia/Jakarta");
         function waktu() {
             let waktu = new Date();
             setTimeout("waktu()", 1000);
+            let t = waktu.getDate();
+            let b = waktu.getMonth() + 1;
+            let y = waktu.getFullYear();
             let h = waktu.getHours();
             let m = waktu.getMinutes();
             let s = waktu.getSeconds();
@@ -24,7 +27,7 @@ date_default_timezone_set("Asia/Jakarta");
             m = checkTime(m);
             s = checkTime(s);
 
-            document.getElementById("jam").innerHTML = h + " : " + m + " : " + s + " WIB";
+            document.getElementById("jam").innerHTML = t + " - " + b + " - " + y + " | " + h + " : " + m + " : " + s + " WIB";
         }
 
         function checkTime(i) {
@@ -49,7 +52,7 @@ date_default_timezone_set("Asia/Jakarta");
                 <h4><b>CHECK LIST PEKERJAAN</b></h4>
             </div>
             <div class="col sm-2 text-end mt-1">
-                <button class="btn btn-outline-dark"><?php echo date('d F Y'); ?></button>
+                <!-- <button class="btn btn-outline-dark"><?php echo date('d F Y'); ?></button> -->
                 <button class="btn btn-outline-dark" id="jam"></button>
             </div>
         </div>
