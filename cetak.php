@@ -26,7 +26,11 @@ $nama = $_SESSION['username'];
     <title>Form Tanya</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/print.css">
-
+    <style>
+        .font {
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -93,8 +97,9 @@ $nama = $_SESSION['username'];
     </div>
     <div class="logo container-fluid">
         <div class="row">
-            <div class="col-sm-6">
-                <p>Perusahaan Daerah Air Minum <br>Kabupaten Bondowoso</p>
+            <div class="col-sm-6 font">
+                <p class="mb-0">Perusahaan Daerah Air Minum</p>
+                <p class="mb-0">Kabupaten Bondowoso</p>
             </div>
             <div class="col-sm-6"></div>
         </div>
@@ -103,13 +108,13 @@ $nama = $_SESSION['username'];
     </h4>
 
     <div class="container-fluid" id="tabel">
-        <table class="table table-hover table-bordered border-dark">
+        <table class="table table-sm table-hover table-bordered border-dark">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center" width=5%>No</th>
-                    <th scope="col" class="text-center" width=60%>Nama Pekerjaan</th>
-                    <th scope="col" class="text-center" width=10%>Status</th>
-                    <th scope="col" class="text-center" width=25%>Tanggal Selesai</th>
+                    <th scope="col" class="text-center font" width=5%>No</th>
+                    <th scope="col" class="text-center font" width=60%>Nama Pekerjaan</th>
+                    <th scope="col" class="text-center font" width=10%>Status</th>
+                    <th scope="col" class="text-center font" width=25%>Tanggal Selesai</th>
                 </tr>
             </thead>
             <tbody>
@@ -126,13 +131,13 @@ $nama = $_SESSION['username'];
                     <?php while ($row = mysqli_fetch_assoc($query)) : ?>
                         <?php
                         $tgls = strtotime($row['date_task2']);
-                        $tanggal = date('d M Y', $tgls);
+                        $tanggal = date('d F Y', $tgls);
                         ?>
                         <tr>
-                            <th scope="row" class="text-center"><?php echo $no++ ?></th>
-                            <td><?php echo $row['name_task']; ?></td>
-                            <td class="text-center"><?php echo $row['status_task2']; ?></td>
-                            <td class="text-center"><?php echo $tanggal; ?></td>
+                            <th scope="row" class="text-center font"><?php echo $no++ ?></th>
+                            <td class="font"><?php echo $row['name_task']; ?></td>
+                            <td class="text-center font"><?php echo $row['status_task2']; ?></td>
+                            <td class="text-center font"><?php echo $tanggal; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 <?php } ?>
@@ -143,12 +148,12 @@ $nama = $_SESSION['username'];
         <div class="row">
             <div class="col-sm-6"></div>
             <div class="col-sm-6 text-center">
-                <h6>Bondowoso, <?php echo date('d F Y'); ?></h6>
-                <h6 class="ttd mb-0">Dibuat Oleh :</h6>
-                <h6><?php echo $_SESSION['jabatan'] . ' ' . $_SESSION['sub_bagian'] ?></h6>
+                <h6 class="font">Bondowoso, <?php echo date('d F Y'); ?></h6>
+                <h6 class="ttd mb-0 font">Dibuat Oleh :</h6>
+                <h6 class="font"><?php echo $_SESSION['jabatan'] . ' ' . $_SESSION['sub_bagian'] ?></h6>
                 <br><br>
-                <h6 class="mb-0"><u><?php echo $_SESSION['nama_depan'] . ' ' . $_SESSION['nama_belakang']; ?></u></h6>
-                <h6>Nik. <?php echo $_SESSION['nik']; ?></h6>
+                <h6 class="mb-0 font"><u><?php echo $_SESSION['nama_depan'] . ' ' . $_SESSION['nama_belakang']; ?></u></h6>
+                <h6 class="font">Nik. <?php echo $_SESSION['nik']; ?></h6>
             </div>
         </div>
     </div>
