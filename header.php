@@ -36,7 +36,7 @@ date_default_timezone_set("Asia/Jakarta");
     </script>
 </head>
 
-<body>
+<body onload="waktu()">
     <div class="container-fluid bg-warning">
         <div class="row">
             <div class="col-sm-1 mt-1 text-center">
