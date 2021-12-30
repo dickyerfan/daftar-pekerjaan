@@ -153,7 +153,6 @@ $nama = $_SESSION['username'];
         </div>
     </div>
 
-
     <script>
         const tanya = document.getElementById('tanya');
         const tombol_belum = document.getElementById('belum');
@@ -175,6 +174,7 @@ $nama = $_SESSION['username'];
             window.print();
         })
     </script>
+
     <script src="js/bootstrap.bundle.js" crossorigin="anonymous"></script>
 </body>
 
