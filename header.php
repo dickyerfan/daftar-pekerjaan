@@ -17,7 +17,8 @@ date_default_timezone_set("Asia/Jakarta");
             let waktu = new Date();
             setTimeout("waktu()", 1000);
             let t = waktu.getDate();
-            let b = waktu.getMonth() + 1;
+            let b = waktu.getMonth(); // jika menggunakan array
+            // let b = waktu.getMonth() + 1;  // jika menggunakan switch
             let y = waktu.getFullYear();
             let h = waktu.getHours();
             let m = waktu.getMinutes();
@@ -28,44 +29,49 @@ date_default_timezone_set("Asia/Jakarta");
             m = checkTime(m);
             s = checkTime(s);
 
-            switch (b) {
-                case 1:
-                    b = "Januari";
-                    break;
-                case 2:
-                    b = "Februari";
-                    break;
-                case 3:
-                    b = "Maret";
-                    break;
-                case 4:
-                    b = "April";
-                    break;
-                case 5:
-                    b = "Mei";
-                    break;
-                case 6:
-                    b = "Juni";
-                    break;
-                case 7:
-                    b = "Juli";
-                    break;
-                case 8:
-                    b = "Agustus";
-                    break;
-                case 9:
-                    b = "September";
-                    break;
-                case 10:
-                    b = "Oktober";
-                    break;
-                case 11:
-                    b = "November";
-                    break;
-                case 12:
-                    b = "Desember";
-                    break;
-            }
+            let b_arr = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober",
+                "Nofember", "Desember"
+            ];
+            b = b_arr[b];
+
+            // switch (b) {
+            //     case 1:
+            //         b = "Januari";
+            //         break;
+            //     case 2:
+            //         b = "Februari";
+            //         break;
+            //     case 3:
+            //         b = "Maret";
+            //         break;
+            //     case 4:
+            //         b = "April";
+            //         break;
+            //     case 5:
+            //         b = "Mei";
+            //         break;
+            //     case 6:
+            //         b = "Juni";
+            //         break;
+            //     case 7:
+            //         b = "Juli";
+            //         break;
+            //     case 8:
+            //         b = "Agustus";
+            //         break;
+            //     case 9:
+            //         b = "September";
+            //         break;
+            //     case 10:
+            //         b = "Oktober";
+            //         break;
+            //     case 11:
+            //         b = "Nofember";
+            //         break;
+            //     case 12:
+            //         b = "Desember";
+            //         break;
+            // }
 
             document.getElementById("jam").innerHTML = t + "  " + b + "  " + y + " | " + h + " : " + m + " : " + s + " WIB";
         }
