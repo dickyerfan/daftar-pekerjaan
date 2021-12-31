@@ -72,7 +72,7 @@ $nama = $_SESSION['username'];
                                     <option value="08">Agustus</option>
                                     <option value="09">September</option>
                                     <option value="10">Oktober</option>
-                                    <option value="11">November</option>
+                                    <option value="11">Nofember</option>
                                     <option value="12">Desember</option>
                                 </select>
                                 <select name="tahun" class="form-select">
@@ -131,13 +131,54 @@ $nama = $_SESSION['username'];
                     <?php while ($row = mysqli_fetch_assoc($query)) : ?>
                         <?php
                         $tgls = strtotime($row['date_task2']);
-                        $tanggal = date('d F Y', $tgls);
+                        $tanggal = date('d', $tgls);
+                        $bulan = date('m', $tgls);
+                        $tahun = date('Y', $tgls);
+
+                        switch ($bulan) {
+                            case '1':
+                                $bulan = "Januari";
+                                break;
+                            case '2':
+                                $bulan = "Februari";
+                                break;
+                            case '3':
+                                $bulan = "Maret";
+                                break;
+                            case '4':
+                                $bulan = "April";
+                                break;
+                            case '5':
+                                $bulan = "Mei";
+                                break;
+                            case '6':
+                                $bulan = "Juni";
+                                break;
+                            case '7':
+                                $bulan = "Juli";
+                                break;
+                            case '8':
+                                $bulan = "Agustus";
+                                break;
+                            case '9':
+                                $bulan = "September";
+                                break;
+                            case '10':
+                                $bulan = "Oktober";
+                                break;
+                            case '11':
+                                $bulan = "Nofember";
+                                break;
+                            case '12':
+                                $bulan = "Desember";
+                                break;
+                        }
                         ?>
                         <tr>
                             <th scope="row" class="text-center font"><?php echo $no++ ?></th>
                             <td class="font"><?php echo $row['name_task']; ?></td>
                             <td class="text-center font"><?php echo $row['status_task2']; ?></td>
-                            <td class="text-center font"><?php echo $tanggal; ?></td>
+                            <td class="text-center font"><?php echo $tanggal . " " . $bulan . " " . $tahun; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 <?php } ?>
@@ -148,7 +189,7 @@ $nama = $_SESSION['username'];
         <div class="row">
             <div class="col-sm-6"></div>
             <div class="col-sm-6 text-center">
-                <h6 class="font">Bondowoso, <?php echo date('d F Y'); ?></h6>
+                <h6 class="font">Bondowoso, <?php echo $tanggal . " " . $bulan . " " . $tahun; ?></h6>
                 <h6 class="ttd mb-0 font">Dibuat Oleh :</h6>
                 <h6 class="font"><?php echo $_SESSION['jabatan'] . ' ' . $_SESSION['sub_bagian'] ?></h6>
                 <br><br>
