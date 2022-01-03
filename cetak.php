@@ -15,6 +15,48 @@ $nama = $_SESSION['username'];
 // $row = mysqli_fetch_assoc($query);
 // $bulan = strtoupper(date('F', strtotime($row['date_task2'])));
 
+$tgl = date('d');
+$bln = date('m');
+$thn = date('Y');
+
+switch ($bln) {
+    case '1':
+        $bln = "Januari";
+        break;
+    case '2':
+        $bln = "Februari";
+        break;
+    case '3':
+        $bln = "Maret";
+        break;
+    case '4':
+        $bln = "April";
+        break;
+    case '5':
+        $bln = "Mei";
+        break;
+    case '6':
+        $bln = "Juni";
+        break;
+    case '7':
+        $bln = "Juli";
+        break;
+    case '8':
+        $bln = "Agustus";
+        break;
+    case '9':
+        $bln = "September";
+        break;
+    case '10':
+        $bln = "Oktober";
+        break;
+    case '11':
+        $bln = "Nofember";
+        break;
+    case '12':
+        $bln = "Desember";
+        break;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,6 +167,9 @@ $nama = $_SESSION['username'];
                 if (isset($_POST["add_post"])) {
                     $tahun = $_POST['tahun'];
                     $bulan = $_POST['bulan'];
+                    if ($bulan < 10) {
+                        $bulan = str_split($bulan)[1];
+                    }
                     $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task2 = 'Selesai' AND bulan = '$bulan' AND tahun = '$tahun' ORDER BY date_task2 ASC");
 
                 ?>
@@ -189,7 +234,7 @@ $nama = $_SESSION['username'];
         <div class="row">
             <div class="col-sm-6"></div>
             <div class="col-sm-6 text-center">
-                <h6 class="font">Bondowoso, <?php echo $tanggal . " " . $bulan . " " . $tahun; ?></h6>
+                <h6 class="font">Bondowoso, <?php echo $tgl . " " . $bln . " " . $thn; ?></h6>
                 <h6 class="ttd mb-0 font">Dibuat Oleh :</h6>
                 <h6 class="font"><?php echo $_SESSION['jabatan'] . ' ' . $_SESSION['sub_bagian'] ?></h6>
                 <br><br>
