@@ -48,16 +48,21 @@ while ($row = mysqli_fetch_assoc($query)) {
 }
 if (isset($_POST["ambil_data"])) {
     $bulan = $_POST['bulan'];
-    $cek = mysqli_num_rows(mysqli_query($con, "SELECT * FROM $table WHERE bulan = '$bulan' "));
-    if ($cek > 0) {
-        // echo "<script>window.alert('daftar pekerjaan yang anda masukan sudah ada')
-        // window.location='index.php'</script>";
-        $error = true;
-    } else {
-        $query_insert = "INSERT INTO $table (name_task, status_task1, tahun, bulan , date_task1)SELECT name_task,'Pending',YEAR(now()),month(now()),now() FROM listjob WHERE username = '$table' ";
-        $insert = mysqli_query($con, $query_insert);
-        header("Location: index.php");
-        exit;
+
+    if ($bulan < 10) {
+        $bulan = str_split($bulan)[1];
+
+        $cek = mysqli_num_rows(mysqli_query($con, "SELECT * FROM $table WHERE bulan = '$bulan' "));
+        if ($cek > 0) {
+            // echo "<script>window.alert('daftar pekerjaan yang anda masukan sudah ada')
+            // window.location='index.php'</script>";
+            $error = true;
+        } else {
+            $query_insert = "INSERT INTO $table (name_task, status_task1, tahun, bulan , date_task1)SELECT name_task,'Pending',YEAR(now()),month(now()),now() FROM listjob WHERE username = '$table' ";
+            $insert = mysqli_query($con, $query_insert);
+            header("Location: index.php");
+            exit;
+        }
     }
 }
 
@@ -234,8 +239,12 @@ if (isset($_GET['hapus'])) {
                         </div>
                         <ul class="list-group">
                             <?php
-                            $blnini = date('m');
                             $thnini = date('Y');
+                            $blnini = date('m');
+                            if ($blnini < 10) {
+                                $blnini = str_split($blnini)[1];
+                            }
+
                             $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task2 ='Selesai' AND bulan = '$blnini' AND tahun = '$thnini' ORDER BY date_task2 ASC");
                             while ($row = mysqli_fetch_array($query)) {
                                 $id_task = $row['id_task'];
