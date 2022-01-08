@@ -9,6 +9,10 @@ if (!isset($_SESSION["login"])) {
 
 require "function.php";
 
+$nik_baru = $_SESSION['nik'];
+$nik_pecah = str_split($nik_baru);
+$nik_baru = $nik_pecah[0] . $nik_pecah[1] . $nik_pecah[2] . ' ' . $nik_pecah[3] . $nik_pecah[4] . ' ' . $nik_pecah[5] . $nik_pecah[6] . $nik_pecah[7];
+
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +69,7 @@ require "function.php";
                                 <h5 class="card-title">Agama</h5>
                             </div>
                             <div class="col-sm-5">
-                                <h5 class="gantisize card-title"><?php echo $_SESSION['nik']; ?></h5>
+                                <h5 class="gantisize card-title"><?php echo $nik_baru; ?></h5>
                                 <h5 class="gantisize card-title"><?php echo ucwords(strtolower($_SESSION['tempat_lahir'])); ?></h5>
                                 <h5 class="card-title"><?php echo ucwords(date('d-F-Y', strtotime($_SESSION['tgl_lahir']))); ?></h5>
                                 <h5 class="gantisize card-title"><?php echo ucwords(strtolower($_SESSION['jenkel'])); ?></h5>
