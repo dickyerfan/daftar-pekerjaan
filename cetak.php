@@ -57,6 +57,10 @@ switch ($bln) {
         $bln = "Desember";
         break;
 }
+
+$nik_baru = $_SESSION['nik'];
+$nik_pecah = str_split($nik_baru);
+$nik_baru = $nik_pecah[0] . $nik_pecah[1] . $nik_pecah[2] . ' ' . $nik_pecah[3] . $nik_pecah[4] . ' ' . $nik_pecah[5] . $nik_pecah[6] . $nik_pecah[7];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -239,7 +243,7 @@ switch ($bln) {
                 <h6 class="font"><?php echo $_SESSION['jabatan'] . ' ' . $_SESSION['sub_bagian'] ?></h6>
                 <br><br>
                 <h6 class="mb-0 font"><u><?php echo $_SESSION['nama_depan'] . ' ' . $_SESSION['nama_belakang']; ?></u></h6>
-                <h6 class="font">Nik. <?php echo $_SESSION['nik']; ?></h6>
+                <h6 class="font">Nik. <?php echo $nik_baru; ?></h6>
             </div>
         </div>
     </div>
