@@ -51,7 +51,7 @@ if (isset($_POST["update"])) {
                                 <img src="img/pdam_biru.png" alt="" style="width: 3rem;">
                             </div>
                             <div class="col-sm-10">
-                                <h1>UPDATE</h1>
+                                <h3>UPDATE PROFIL</h3>
                             </div>
                         </div>
                         <div class="mb-1  row">
