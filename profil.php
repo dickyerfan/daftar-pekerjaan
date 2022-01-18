@@ -40,10 +40,13 @@ $nik_baru = $nik_pecah[0] . $nik_pecah[1] . $nik_pecah[2] . ' ' . $nik_pecah[3] 
                 <div class="card shadow-lg">
                     <div class="card-header bg-primary">
                         <div class="row">
-                            <div class="col-sm-9">
+                            <div class="col-sm-7">
                                 <h2 class="text-light">PROFIL KARYAWAN</h2>
                             </div>
                             <div class="col-sm-1 text-end">
+                                <a href="update.php" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Update Jabatan" style="width: 75px;"><img src="img/vector-pen.svg" alt="" style="width: 2rem;"></a>
+                            </div>
+                            <div class="col-sm-2 text-end">
                                 <a href="gantipass.php" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ganti Password" style="width: 75px;"><img src="img/key.svg" alt="" style="width: 2rem;"></a>
                             </div>
                             <div class="col-sm-2 text-end">
