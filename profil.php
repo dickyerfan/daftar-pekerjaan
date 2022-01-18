@@ -12,7 +12,48 @@ require "function.php";
 $nik_baru = $_SESSION['nik'];
 $nik_pecah = str_split($nik_baru);
 $nik_baru = $nik_pecah[0] . $nik_pecah[1] . $nik_pecah[2] . ' ' . $nik_pecah[3] . $nik_pecah[4] . ' ' . $nik_pecah[5] . $nik_pecah[6] . $nik_pecah[7];
+$tanggal_lahir = date('d', strtotime($_SESSION['tgl_lahir']));
+$bulan_lahir = date('m', strtotime($_SESSION['tgl_lahir']));
+$tahun_lahir = date('Y', strtotime($_SESSION['tgl_lahir']));
 
+switch ($bulan_lahir) {
+    case '01':
+        $bulan_lahir = 'Januari';
+        break;
+    case '02':
+        $bulan_lahir = 'Februari';
+        break;
+    case '03':
+        $bulan_lahir = 'Maret';
+        break;
+    case '04':
+        $bulan_lahir = 'April';
+        break;
+    case '05':
+        $bulan_lahir = 'Mei';
+        break;
+    case '06':
+        $bulan_lahir = 'Juni';
+        break;
+    case '07':
+        $bulan_lahir = 'Juli';
+        break;
+    case '08':
+        $bulan_lahir = 'Agustus';
+        break;
+    case '09':
+        $bulan_lahir = 'September';
+        break;
+    case '10':
+        $bulan_lahir = 'Oktober';
+        break;
+    case '11':
+        $bulan_lahir = 'Nofember';
+        break;
+    case '12':
+        $bulan_lahir = 'Desember';
+        break;
+}
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +115,7 @@ $nik_baru = $nik_pecah[0] . $nik_pecah[1] . $nik_pecah[2] . ' ' . $nik_pecah[3] 
                             <div class="col-sm-5">
                                 <h5 class="gantisize card-title"><?php echo $nik_baru; ?></h5>
                                 <h5 class="gantisize card-title"><?php echo ucwords(strtolower($_SESSION['tempat_lahir'])); ?></h5>
-                                <h5 class="card-title"><?php echo ucwords(date('d-F-Y', strtotime($_SESSION['tgl_lahir']))); ?></h5>
+                                <h5 class="card-title"><?php echo ucwords($tanggal_lahir . ' ' . $bulan_lahir . ' ' . $tahun_lahir); ?></h5>
                                 <h5 class="gantisize card-title"><?php echo ucwords(strtolower($_SESSION['jenkel'])); ?></h5>
                                 <h5 class="gantisize card-title"><?php echo ucwords(strtolower($_SESSION['agama'])); ?></h5>
                             </div>
