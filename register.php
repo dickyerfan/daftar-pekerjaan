@@ -16,7 +16,7 @@ if (isset($_POST["register"])) {
 if (isset($_POST["register"])) {
     $table = $_POST["username"];
     $query  = "CREATE TABLE $table (id_task INT(10) AUTO_INCREMENT, ";
-    $query .= "name_task VARCHAR(50),";
+    $query .= "name_task VARCHAR(255),";
     $query .= "status_task1 VARCHAR(50), ";
     $query .= "status_task2 VARCHAR(50), ";
     $query .= "tahun VARCHAR(4), ";
