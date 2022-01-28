@@ -85,15 +85,27 @@ $nik_baru = $nik_pecah[0] . $nik_pecah[1] . $nik_pecah[2] . ' ' . $nik_pecah[3] 
     </header>
     <div class="container-fluid bg-info">
         <div class="navbar1 row justify-content-center">
-            <div class="col-sm-9"></div>
-            <div class="col-sm-1 text-center mt-1">
-                <a href="index.php"><button class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Kembali ke Halaman Utama" style="width: 75px;"><img src="img/backspace.svg" alt="" style="width: 1.7rem;"></button></a>
-            </div>
-            <div class="col-sm-1 text-center mt-1">
-                <h3><button class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Pilih Bulan dan Tahun" id="belum" style="width: 75px;"><img src="img/calendar3.svg" alt="" style="width: 1.5rem;"></button></h3>
-            </div>
-            <div class="col-sm-1 text-center mt-1">
-                <a href="#"><button class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cetak File" id="cetak" style="width: 75px;"><img src="img/printer.svg" alt="" style="width: 1.7rem;"></button></a>
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h4 class="text-light float-start">DAFTAR PEKERJAAN</h4>
+                    </div>
+                    <div class="col-sm-9  mb-1">
+                        <ul class="nav nav-tabs card-header-tabs float-end pe-1">
+                            <button class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cetak File" id="cetak"><img src="img/printer.svg" alt="" style="width: 1.2rem;"> Cetak</button>
+                            <div class="dropdown">
+                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Menu
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <!-- <li><a class="dropdown-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cetak File" id="cetak" href="#"><img src="img/printer.svg" alt="" style="width: 1.2rem;"> Cetak</a></li> -->
+                                    <li><button class="dropdown-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Pilih Bulan dan Tahun" id="belum" href="gantipass.php"><img src="img/calendar3.svg" alt="" style="width: 1.2rem;"> Pilih Bulan & Tahun</button></li>
+                                    <li><a class="dropdown-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Kembali ke Halaman Utama" href="index.php"><img src="img/backspace.svg" alt="" style="width: 1.2rem;"> Kembali</a></li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
