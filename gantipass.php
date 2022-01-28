@@ -77,13 +77,14 @@ if (isset($_POST['reset'])) {
                             <label for="username" class="mb-2 text-muted">username :</label>
                             <input type="text" class="form-control mb-2" id="username" name="username" required autofocus autocomplete="off">
                         </div> -->
+                        <!-- <div class="mb-1  row">
+                            <input type="password" class="form-control mb-2" id="passwordlama" name="passwordlama" autofocus autocomplete="off" placeholder="Password Lama">
+                        </div> -->
                         <div class="mb-1  row">
-                            <label for="passwordbaru" class="mb-2 text-muted">Password Baru :</label>
-                            <input type="password" class="form-control mb-2" id="passwordbaru" name="passwordbaru" autofocus autocomplete="off">
+                            <input type="password" class="form-control mb-2" id="passwordbaru" name="passwordbaru" autofocus autocomplete="off" placeholder="Password Baru">
                         </div>
                         <div class="mb-1  row">
-                            <label for="passwordconfirm" class="mb-2 text-muted">Password Konfirmasi :</label>
-                            <input type="password" class="form-control mb-2" id="passwordconfirm" name="passwordconfirm" autocomplete="off">
+                            <input type="password" class="form-control mb-2" id="passwordconfirm" name="passwordconfirm" autocomplete="off" placeholder="Password Konfirmasi">
                         </div>
 
                         <button type="submit" class="btn btn-primary" name="reset">Ganti Password</button>
