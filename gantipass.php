@@ -7,28 +7,42 @@ $username = $_SESSION['username'];
 
 if (isset($_POST['reset'])) {
     // $username = $_POST['username'];
+    $passwordlama = $_POST['passwordlama'];
     $passwordbaru = $_POST['passwordbaru'];
     $passwordbaru = password_hash($passwordbaru, PASSWORD_DEFAULT);
     $passwordconfirm = $_POST['passwordconfirm'];
-    //cek password lama
+
     $query = mysqli_query($con, "SELECT * FROM user where username = '$username' ");
-    if (mysqli_num_rows($query) === 1) {
+
+    if (mysqli_num_rows($query) == 1) {
         $row = mysqli_fetch_assoc($query);
-        //validasi data data kosong
-        if (empty($_POST['passwordbaru']) || empty($_POST['passwordconfirm'])) {
-            echo "<h3><font color=red><center>Ganti Password Gagal! Data Tidak Boleh Kosong.</center></font></h3>";
-            //validasi input konfirm password
-        } else if (($_POST['passwordbaru']) != ($_POST['passwordconfirm'])) {
-            echo "<h3><font color=red><center>Ganti Password Gagal! Password Baru dan Password Konfirmasi Harus Sama.</center></font></h3>";
+        //cek password lama
+        if (!password_verify($passwordlama, $row['password'])) {
+            // echo "<h3><font color=red><center>Password Lama Salah</center></font></h3>";
+            $error = true;
         } else {
-            //update data
-            $query = mysqli_query($con, "UPDATE user SET password='$passwordbaru' WHERE username='$username'");
-            //setelah berhasil update 
-            if ($query) {
-                echo "<h3><font color=blue><center>Ganti Password Berhasil!</center></font></h3>";
-                // header("Location: profil.php");
+            //validasi data data kosong
+            if (empty($_POST['passwordbaru']) || empty($_POST['passwordconfirm'])) {
+                // echo "<h3><font color=red><center>Ganti Password Gagal!<br>Password baru dan Password konfirmasi Tidak Boleh Kosong.</center></font></h3>";
+                $error2 = true;
+                //validasi input konfirm password
+            } else if (($_POST['passwordbaru']) != ($_POST['passwordconfirm'])) {
+                // echo "<h3><font color=red><center>Ganti Password Gagal!<br>Password Baru dan Password Konfirmasi Harus Sama.</center></font></h3>";
+                $error3 = true;
+            } elseif (($_POST['passwordlama']) == ($_POST['passwordbaru'])) {
+                $error4 = true;
             } else {
-                echo "<h3><font color=red><center>Ganti Password Gagal!</center></font></h3>";
+                //update data
+                $query = mysqli_query($con, "UPDATE user SET password='$passwordbaru' WHERE username='$username'");
+                //setelah berhasil update 
+                if ($query) {
+                    // echo "<h3><font color=blue><center>Ganti Password Berhasil!</center></font></h3>";
+                    $error5 = true;
+                    // header("Location: profil.php");
+                } else {
+                    // echo "<h3><font color=red><center>Ganti Password Gagal!</center></font></h3>";
+                    $error6 = true;
+                }
             }
         }
     }
@@ -56,7 +70,37 @@ if (isset($_POST['reset'])) {
                     <!-- alert untuk error -->
                     <?php if (isset($error)) : ?>
                         <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
-                            <strong>Login Gagal</strong><br> Harus di isi sesuai dengan di registrasi
+                            <strong>Ganti Password Gagal!</strong><br>Password Lama Salah
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (isset($error2)) : ?>
+                        <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
+                            <strong>Ganti Password Gagal!</strong><br>Password baru dan Password konfirmasi Tidak Boleh Kosong
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (isset($error3)) : ?>
+                        <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
+                            <strong>Ganti Password Gagal!</strong><br>Password Baru dan Password Konfirmasi Harus Sama
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (isset($error4)) : ?>
+                        <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
+                            <strong>Ganti Password Gagal!</strong><br>Password Lama dan Password Baru Tidak boleh Sama
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (isset($error5)) : ?>
+                        <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
+                            <strong>Ganti Password Berhasil! <a href="profil.php" class="text-primary" style="text-decoration: none;">Kembali</a> </strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (isset($error6)) : ?>
+                        <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
+                            <strong>Ganti Password Gagal!</strong>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     <?php endif; ?>
@@ -74,12 +118,11 @@ if (isset($_POST['reset'])) {
                         </div>
                         <br>
                         <!-- <div class="mb-1  row">
-                            <label for="username" class="mb-2 text-muted">username :</label>
-                            <input type="text" class="form-control mb-2" id="username" name="username" required autofocus autocomplete="off">
+                            <input type="text" class="form-control mb-2" id="username" name="username" required autofocus autocomplete="off" readonly value="<?= $username ?>">
                         </div> -->
-                        <!-- <div class="mb-1  row">
+                        <div class="mb-1  row">
                             <input type="password" class="form-control mb-2" id="passwordlama" name="passwordlama" autofocus autocomplete="off" placeholder="Password Lama">
-                        </div> -->
+                        </div>
                         <div class="mb-1  row">
                             <input type="password" class="form-control mb-2" id="passwordbaru" name="passwordbaru" autofocus autocomplete="off" placeholder="Password Baru">
                         </div>
