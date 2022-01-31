@@ -113,10 +113,12 @@ if (isset($_POST["update"])) {
                             <select class="form-select" name="jabatan" id="jabatan" required>
                                 <option value="">Jabatan</option>
                                 <option value="Kabag">Kabag</option>
+                                <option value="Ketua">Ketua</option>
                                 <option value="Ka UPK">Ka UPK</option>
                                 <option value="Manajer">Manajer</option>
                                 <option value="Kasubag">Kasubag</option>
                                 <option value="Pelaksana">Pelaksana</option>
+                                <option value="Anggota">Anggota</option>
                                 <option value="Staf">Staf</option>
                             </select>
                         </div>
